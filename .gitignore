@@ -1,0 +1,6 @@
+.elixir_ls
+node_modules
+.vscode
+.idea
+.env
+dist
