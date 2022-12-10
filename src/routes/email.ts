@@ -41,9 +41,10 @@ class EmailRoute {
         const body = request.body as EmailBody;
         const { email, message } = body;
         if (!email || !message)
-          return reply
-            .code(400)
-            .send({ InvalidEmail: "Email or Message must be set" });
+          return reply.code(400).send({ Invalid: "The form is invalid" });
+
+        if (email.length === 0 || message.length === 0)
+          return reply.code(400).send({ Empty: "The form is empty" });
 
         const disposable = await checkDisposable(email);
         if (disposable)
