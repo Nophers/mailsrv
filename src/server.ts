@@ -25,8 +25,9 @@ class Server {
 
   public async start(): Promise<void> {
     try {
-      await this.fastify.listen({ port: 1069 });
-      console.log("Server is running on port 3000");
+      const serverport = process.env.PORT || 1069; 
+      await this.fastify.listen({ port: serverport });
+      console.log(`Server is listening on Port`);
     } catch (err) {
       this.fastify.log.error(err);
       process.exit(1);
@@ -37,7 +38,7 @@ class Server {
     this.fastify.register(cors, {
       origin: process.env.ORIGIN_URL || "http://localhost:3000",
       methods: ["GET", "POST"],
-      allowedHeaders: ["Content-Type", "Authorization"],
+      allowedHeaders: ["Content-Type"],
     });
   }
   /*

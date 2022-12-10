@@ -1,7 +1,7 @@
 import { disposed } from "mailify";
 
 /**
- * Module to check if a email is disposable
+ * Module to check if an email is disposable
  * @module checkDisposable
  * @param {string} email - Email to check
  * @returns {boolean} - Returns true if the email is disposable
