@@ -25,9 +25,8 @@ class Server {
 
   public async start(): Promise<void> {
     try {
-      const serverport = process.env.PORT || 1069; 
-      await this.fastify.listen({ port: serverport });
-      console.log(`Server is listening on Port ${serverport}`);
+      await this.fastify.listen({ port: 1069 });
+      console.log(`Server is listening on Port ${1069}`);
     } catch (err) {
       this.fastify.log.error(err);
       process.exit(1);
